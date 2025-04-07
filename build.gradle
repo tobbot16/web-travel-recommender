@@ -51,6 +51,9 @@ dependencies {
 	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}:jakarta"
 
 
+	// https://mvnrepository.com/artifact/net.coobird/thumbnailator
+	implementation("net.coobird:thumbnailator:0.4.19")
+
 	annotationProcessor(
 
 

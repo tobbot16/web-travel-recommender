@@ -51,7 +51,7 @@ public class TodoController {
     }
 
     @DeleteMapping("/{tno}")
-    public Map<String, String> remove(@PathVariable Long tno){
+    public Map<String, String> remove(@PathVariable(name="tno") Long tno){
 
         todoService.remove(tno);
 
