@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.annotation.Commit;
 import org.zerock.apiserver.domain.Product;
+import org.zerock.apiserver.dto.PageRequestDTO;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -93,6 +94,13 @@ public class ProductRepositoryTests {
 
         result.getContent().forEach(arr -> log.info(Arrays.toString(arr)));
 
+    }
+
+
+    @Test
+    public void testSearch(){
+        PageRequestDTO pageRequestDTO = PageRequestDTO.builder().build();
+        productRepository.searchList(pageRequestDTO);
     }
 
 

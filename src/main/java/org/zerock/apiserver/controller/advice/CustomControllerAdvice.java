@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.zerock.apiserver.util.CustomJWTException;
 
 import java.util.Map;
 import java.util.NoSuchElementException;
@@ -24,5 +25,12 @@ public class CustomControllerAdvice {
     }
 
 
+
+    @ExceptionHandler(CustomJWTException.class)
+    protected ResponseEntity<?> handleJWTException(CustomJWTException e) {
+
+        String msg = e.getMessage();
+        return ResponseEntity.ok().body(Map.of("error", msg));
+    }
 
 }   

@@ -8,11 +8,12 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.zerock.apiserver.domain.Product;
+import org.zerock.apiserver.repository.search.ProductSearch;
 
 import java.util.Objects;
 import java.util.Optional;
 
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<Product, Long> , ProductSearch {
 
     @EntityGraph(attributePaths = "imageList")
     @Query("select p from Product p where p.pno = :pno")
